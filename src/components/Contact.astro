@@ -1,6 +1,7 @@
 ---
 import Section from "./Section.astro";
 import Button from "./Button.astro";
+import Icon from "./Icon.astro";
 import { contact } from "../data/contact";
 import { site } from "../data/site";
 
@@ -11,88 +12,322 @@ const labelClass = "block text-sm font-medium text-ink";
 
 <Section id="contact" title={contact.heading} description={contact.intro}>
   <div class="grid gap-10 lg:grid-cols-5">
-    <div class="space-y-6 lg:col-span-2">
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-primary">
-          Location
-        </p>
-        <p class="mt-1 text-ink">{site.location}</p>
-      </div>
-      <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-primary">
-          Email
-        </p>
-        <a
-          href={`mailto:${site.email}`}
-          class="mt-1 inline-block font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
-        >
-          {site.email}
-        </a>
-      </div>
+    <div class="lg:col-span-2">
+      <ul class="space-y-7">
+        <li class="flex gap-4">
+          <span
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-secondary/40 text-primary"
+            aria-hidden="true"
+          >
+            <Icon name="map-pin" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary">
+              Location
+            </p>
+            <p class="mt-1 text-ink">{site.location}</p>
+          </div>
+        </li>
+
+        <li class="flex gap-4">
+          <span
+            class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-secondary/40 text-primary"
+            aria-hidden="true"
+          >
+            <Icon name="mail" class="h-5 w-5" />
+          </span>
+          <div>
+            <p class="text-sm font-semibold uppercase tracking-wider text-primary">
+              Email
+            </p>
+            <a
+              href={`mailto:${site.email}`}
+              class="mt-1 inline-block break-all font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
+            >
+              {site.email}
+            </a>
+          </div>
+        </li>
+
+        {
+          site.linkedin && (
+            <li class="flex gap-4">
+              <span
+                class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-secondary/40 text-primary"
+                aria-hidden="true"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" class="h-5 w-5">
+                  <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.55C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.72C24 .77 23.2 0 22.22 0z" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-sm font-semibold uppercase tracking-wider text-primary">
+                  LinkedIn
+                </p>
+                <a
+                  href={site.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="mt-1 inline-block font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
+                >
+                  View LinkedIn profile
+                </a>
+              </div>
+            </li>
+          )
+        }
+      </ul>
     </div>
 
-    <form
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      netlify-honeypot="bot-field"
-      class="grid gap-5 rounded-2xl border border-primary/15 bg-surface/40 p-6 shadow-sm sm:p-8 lg:col-span-3"
-    >
-      <input type="hidden" name="form-name" value="contact" />
-      <p class="hidden">
-        <label>Don't fill this out: <input name="bot-field" /></label>
-      </p>
+    <div class="lg:col-span-3">
+      <form
+        id="contact-form"
+        name="contact"
+        method="POST"
+        action="/"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="grid gap-5 rounded-2xl border-2 border-secondary/60 bg-white p-6 shadow-sm sm:p-8"
+      >
+        <input type="hidden" name="form-name" value="contact" />
+        <p class="hidden" aria-hidden="true">
+          <label>Don't fill this out: <input name="bot-field" /></label>
+        </p>
 
-      <div>
-        <label class={labelClass} for="name">Name</label>
-        <input
-          class={inputClass}
-          type="text"
-          id="name"
-          name="name"
-          autocomplete="name"
-          required
-        />
-      </div>
-
-      <div>
-        <label class={labelClass} for="email">Email</label>
-        <input
-          class={inputClass}
-          type="email"
-          id="email"
-          name="email"
-          autocomplete="email"
-          required
-        />
-      </div>
-
-      <div>
-        <label class={labelClass} for="organisation"
-          >Organisation (optional)</label
+        <p
+          id="form-error"
+          class="hidden items-center gap-2 rounded-xl bg-error/10 px-4 py-3 text-sm font-medium text-error"
         >
-        <input
-          class={inputClass}
-          type="text"
-          id="organisation"
-          name="organisation"
-          autocomplete="organization"
-        />
-      </div>
+          <Icon name="alert-circle" class="h-5 w-5 shrink-0" />
+          <span>{contact.generalError}</span>
+        </p>
 
-      <div>
-        <label class={labelClass} for="message">Message</label>
-        <textarea
-          class={inputClass}
-          id="message"
-          name="message"
-          rows="5"
-          required></textarea>
-      </div>
+        <div>
+          <label class={labelClass} for="name">Name</label>
+          <input
+            class={inputClass}
+            type="text"
+            id="name"
+            name="name"
+            autocomplete="name"
+            required
+          />
+          <p
+            id="name-error"
+            class="mt-2 hidden items-center gap-2 text-sm font-medium text-error"
+          >
+            <Icon name="alert-circle" class="h-4 w-4 shrink-0" />
+            <span>{contact.errors.name}</span>
+          </p>
+        </div>
 
-      <Button type="submit" variant="primary" class="justify-self-start">
-        Send message
-      </Button>
-    </form>
+        <div>
+          <label class={labelClass} for="email">Email</label>
+          <input
+            class={inputClass}
+            type="email"
+            id="email"
+            name="email"
+            autocomplete="email"
+            required
+          />
+          <p
+            id="email-error"
+            class="mt-2 hidden items-center gap-2 text-sm font-medium text-error"
+          >
+            <Icon name="alert-circle" class="h-4 w-4 shrink-0" />
+            <span>{contact.errors.emailRequired}</span>
+          </p>
+        </div>
+
+        <div>
+          <label class={labelClass} for="organisation"
+            >Organisation (optional)</label
+          >
+          <input
+            class={inputClass}
+            type="text"
+            id="organisation"
+            name="organisation"
+            autocomplete="organization"
+          />
+        </div>
+
+        <div>
+          <label class={labelClass} for="message">Message</label>
+          <textarea
+            class={inputClass}
+            id="message"
+            name="message"
+            rows="5"
+            required></textarea>
+          <p
+            id="message-error"
+            class="mt-2 hidden items-center gap-2 text-sm font-medium text-error"
+          >
+            <Icon name="alert-circle" class="h-4 w-4 shrink-0" />
+            <span>{contact.errors.message}</span>
+          </p>
+        </div>
+
+        <Button
+          type="submit"
+          variant="primary"
+          class="justify-self-start disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          Send message
+        </Button>
+      </form>
+
+      <div
+        id="contact-success"
+        class="hidden rounded-2xl border-2 border-secondary/60 bg-white p-8 text-center shadow-sm sm:p-10"
+        aria-live="polite"
+      >
+        <span
+          class="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-accent text-ink"
+          aria-hidden="true"
+        >
+          <Icon name="check-circle" class="h-7 w-7" />
+        </span>
+        <h3
+          id="contact-success-heading"
+          tabindex="-1"
+          class="mt-5 font-serif text-2xl font-bold text-primary"
+        >
+          {contact.successHeading}
+        </h3>
+        <p class="mt-2 text-ink/80">{contact.successBody}</p>
+      </div>
+    </div>
   </div>
 </Section>
+
+<script>
+  import { contact } from "../data/contact";
+
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const fields: Record<string, HTMLInputElement> = {
+    name: form.elements.namedItem("name") as HTMLInputElement,
+    email: form.elements.namedItem("email") as HTMLInputElement,
+    organisation: form.elements.namedItem("organisation") as HTMLInputElement,
+    message: form.elements.namedItem("message") as HTMLInputElement,
+  };
+  const honeypot = form.elements.namedItem("bot-field") as HTMLInputElement;
+  const submitButton = form.querySelector("button[type='submit']") as
+    | HTMLButtonElement
+    | null;
+  const success = document.getElementById(
+    "contact-success",
+  ) as HTMLElement;
+  const successHeading = document.getElementById(
+    "contact-success-heading",
+  ) as HTMLElement;
+
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const errorClass = "border-error focus:ring-error/30";
+
+  const setError = (field: HTMLInputElement, key: "name" | "emailRequired" | "emailInvalid" | "message") => {
+    const error = document.getElementById(`${field.id}-error`);
+    if (error) {
+      const text = error.querySelector("span");
+      if (text) text.textContent = contact.errors[key];
+      error.classList.remove("hidden");
+      error.classList.add("flex");
+    }
+    field.classList.add(errorClass);
+    field.setAttribute("aria-invalid", "true");
+    field.setAttribute("aria-describedby", `${field.id}-error`);
+  };
+
+  const clearError = (field: HTMLInputElement) => {
+    field.classList.remove(errorClass);
+    field.removeAttribute("aria-invalid");
+    field.removeAttribute("aria-describedby");
+    const error = document.getElementById(`${field.id}-error`);
+    if (error) {
+      error.classList.add("hidden");
+      error.classList.remove("flex");
+    }
+  };
+
+  [fields.name, fields.email, fields.organisation, fields.message].forEach(
+    (field) => field.addEventListener("input", () => clearError(field)),
+  );
+
+  const showSuccess = () => {
+    form.hidden = true;
+    success.classList.remove("hidden");
+    successHeading.focus();
+    success.scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  const showGeneralError = () => {
+    const error = document.getElementById("form-error");
+    if (error) {
+      error.classList.remove("hidden");
+      error.classList.add("flex");
+    }
+  };
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    const firstInvalid: HTMLInputElement[] = [];
+
+    if (!fields.name.value.trim()) {
+      setError(fields.name, "name");
+      firstInvalid.push(fields.name);
+    }
+
+    const email = fields.email.value.trim();
+    if (!email) {
+      setError(fields.email, "emailRequired");
+      firstInvalid.push(fields.email);
+    } else if (!emailRe.test(email)) {
+      setError(fields.email, "emailInvalid");
+      firstInvalid.push(fields.email);
+    }
+
+    if (!fields.message.value.trim()) {
+      setError(fields.message, "message");
+      firstInvalid.push(fields.message);
+    }
+
+    if (firstInvalid.length > 0) {
+      firstInvalid[0].focus();
+      return;
+    }
+
+    if (honeypot && honeypot.value) {
+      showSuccess();
+      return;
+    }
+
+    if (submitButton) submitButton.disabled = true;
+
+    try {
+      const payload = new URLSearchParams();
+      new FormData(form).forEach((value, key) => payload.append(key, String(value)));
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+          Accept: "application/x-www-form-urlencoded",
+        },
+        body: payload.toString(),
+      });
+
+      if (response.redirected || (response.status >= 200 && response.status < 400)) {
+        showSuccess();
+      } else {
+        showGeneralError();
+        if (submitButton) submitButton.disabled = false;
+      }
+    } catch {
+      showGeneralError();
+      if (submitButton) submitButton.disabled = false;
+    }
+  });
+</script>

@@ -12,7 +12,8 @@ export const site = {
     "Social development, education and policy advocacy specialist with 20+ years of experience in girls' education, gender and disability inclusion, and child protection across Uganda and Africa.",
   location: "Kampala, Uganda",
   email: "doramuhumure77@gmail.com",
-  linkedin: "",
+  linkedin:
+    "https://linkedin.com/in/dorothy-muhumure-43a051159?utm_source=share_via&utm_content=profile&utm_medium=member_ios",
   cvUrl: "/Dorothy-Muhumure-CV.pdf",
   headshot: { src: "", alt: "Portrait of Dorothy Akankwasa Muhumure" },
   footer: "\u00A9 Dorothy Akankwasa Muhumure. All rights reserved.",

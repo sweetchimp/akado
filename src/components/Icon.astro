@@ -1,14 +1,21 @@
 ---
 import type { ExpertiseIcon } from "../data/expertise";
 
+export type IconName =
+  | ExpertiseIcon
+  | "map-pin"
+  | "mail"
+  | "alert-circle"
+  | "check-circle";
+
 interface Props {
-  name: ExpertiseIcon;
+  name: IconName;
   class?: string;
 }
 
 const { name, class: className = "h-6 w-6" } = Astro.props;
 
-const icons: Record<ExpertiseIcon, string> = {
+const icons: Record<IconName, string> = {
   landmark: `
     <line x1="3" y1="22" x2="21" y2="22" />
     <line x1="6" y1="18" x2="6" y2="11" />
@@ -56,6 +63,23 @@ const icons: Record<ExpertiseIcon, string> = {
     <path d="M7 16h8" />
     <path d="M7 11h12" />
     <path d="M7 6h3" />
+  `,
+  "map-pin": `
+    <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+    <circle cx="12" cy="10" r="3" />
+  `,
+  mail: `
+    <rect x="2" y="4" width="20" height="16" rx="2" />
+    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+  `,
+  "alert-circle": `
+    <circle cx="12" cy="12" r="10" />
+    <path d="M12 8v4" />
+    <path d="M12 16h.01" />
+  `,
+  "check-circle": `
+    <path d="M21.801 10A10 10 0 1 1 17 3.335" />
+    <path d="m9 11 3 3L22 4" />
   `,
 };
 ---

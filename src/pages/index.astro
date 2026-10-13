@@ -1,14 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
-import Section from "../components/Section.astro";
-import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Expertise from "../components/Expertise.astro";
 import Experience from "../components/Experience.astro";
 import Impact from "../components/Impact.astro";
 import Training from "../components/Training.astro";
+import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -36,17 +35,7 @@ import { site } from "../data/site";
 
     <Training />
 
-    <Section
-      id="contact"
-      title="Contact"
-      eyebrow="Section &middot; white"
-      description="Placeholder intro copy for a white section, demonstrating the outline dark button."
-    >
-      <div class="flex flex-wrap gap-4">
-        <Button variant="primary" href="#home">Primary button</Button>
-        <Button variant="outline-dark" href="#about">Outline dark</Button>
-      </div>
-    </Section>
+    <Contact />
   </main>
 
   <Footer />
