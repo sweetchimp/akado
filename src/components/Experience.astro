@@ -5,48 +5,81 @@ import { experience, recentConsultancies } from "../data/experience";
 ---
 
 <Section id="experience" title="Experience">
-  <ol class="relative list-none space-y-12 border-l border-primary/15 pl-8">
+  <ol class="relative list-none space-y-14 border-l border-primary/15 pl-8">
     {
       experience.map((item) => (
         <li class="relative">
-          <span class="absolute -left-10 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-white" />
+          <span
+            class="absolute -left-10 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-white"
+            aria-hidden="true"
+          />
           <p class="text-sm font-semibold uppercase tracking-wider text-primary">
             {item.period}
           </p>
-          <h3 class="mt-1 font-serif text-xl font-bold leading-snug text-primary">
-            {item.heading}
-          </h3>
-          {item.note && (
-            <p class="mt-1 text-sm italic text-ink/60">{item.note}</p>
-          )}
-          {item.summary && (
-            <p class="mt-2 leading-relaxed text-ink/80">{item.summary}</p>
-          )}
-
-          {item.roles && (
-            <div class="mt-6 space-y-5">
-              {item.roles.map((role) => (
-                <div class="rounded-xl border border-primary/10 bg-surface/60 p-5">
-                  <h4 class="font-semibold text-primary">{role.title}</h4>
-                  <p class="text-sm font-medium text-primary/80">
-                    {role.period}
-                  </p>
-                  <p class="mt-2 text-sm leading-relaxed text-ink/80">
-                    {role.summary}
-                  </p>
-                  <Achievements items={role.achievements} />
+          {
+            item.roles ? (
+              <>
+                <h3
+                  class="mt-1 font-serif text-xl font-bold leading-snug text-primary"
+                >
+                  {item.organisation}
+                </h3>
+                {item.note && (
+                  <p class="mt-1 text-sm italic text-ink/60">{item.note}</p>
+                )}
+                <div class="mt-6 rounded-2xl border border-primary/15 bg-surface/60 p-6 sm:p-8">
+                  <ol class="list-none">
+                    {item.roles.map((role, index) => (
+                      <li
+                        class={
+                          index > 0 ? "mt-8 border-t border-primary/10 pt-8" : ""
+                        }
+                      >
+                        <p class="text-sm font-semibold text-primary">
+                          {role.period}
+                        </p>
+                        <h4
+                          class="mt-1 font-serif text-lg font-bold text-primary"
+                        >
+                          {role.title}
+                        </h4>
+                        <p class="mt-2 text-sm leading-relaxed text-ink/80">
+                          {role.summary}
+                        </p>
+                        <Achievements items={role.achievements} />
+                      </li>
+                    ))}
+                  </ol>
                 </div>
-              ))}
-            </div>
-          )}
-
-          {item.achievements && <Achievements items={item.achievements} />}
+              </>
+            ) : (
+              <>
+                <h3
+                  class="mt-1 font-serif text-xl font-bold leading-snug text-primary"
+                >
+                  {item.role}
+                </h3>
+                <p class="mt-0.5 font-medium text-primary/80">
+                  {item.organisation}
+                </p>
+                {item.location && (
+                  <p class="mt-1 text-sm italic text-ink/60">{item.location}</p>
+                )}
+                {item.summary && (
+                  <p class="mt-2 leading-relaxed text-ink/80">
+                    {item.summary}
+                  </p>
+                )}
+                {item.achievements && <Achievements items={item.achievements} />}
+              </>
+            )
+          }
         </li>
       ))
     }
   </ol>
 
-  <div class="mt-14 rounded-2xl border border-primary/10 bg-surface/60 p-6 sm:p-8">
+  <div class="mt-14 rounded-2xl border border-primary/15 bg-surface/60 p-6 sm:p-8">
     <h3 class="font-serif text-xl font-bold text-primary">
       Recent consultancy assignments
     </h3>

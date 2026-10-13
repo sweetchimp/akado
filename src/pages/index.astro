@@ -7,6 +7,7 @@ import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Expertise from "../components/Expertise.astro";
+import Experience from "../components/Experience.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -28,14 +29,7 @@ import { site } from "../data/site";
 
     <Expertise />
 
-    <Section
-      id="experience"
-      title="Experience"
-      eyebrow="Section &middot; white"
-      description="Placeholder intro copy for a white section following pale lilac."
-    >
-      <Placeholder cards={3} lines={2} />
-    </Section>
+    <Experience />
 
     <Section
       id="impact"

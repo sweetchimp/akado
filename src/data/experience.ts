@@ -6,8 +6,10 @@ export interface ExperienceRole {
 }
 
 export interface ExperienceItem {
-  heading: string;
+  organisation: string;
   period: string;
+  role?: string;
+  location?: string;
   note?: string;
   summary?: string;
   achievements?: string[];
@@ -22,8 +24,9 @@ export interface Consultancy {
 
 export const experience: ExperienceItem[] = [
   {
-    heading:
-      "Independent Consultant, GRAMS (Global Research Administration and Management Service Ltd), Uganda",
+    role: "Independent Consultant",
+    organisation: "GRAMS (Global Research Administration and Management Service Ltd)",
+    location: "Uganda",
     period: "2022 \u2013 Present",
     summary:
       "Consulting on education programmes, safeguarding, policy and grants management for international and national organisations.",
@@ -36,8 +39,9 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    heading:
-      "Social Development Specialist, Ministry of Education and Sports: COVID-19 Education Response Project",
+    role: "Social Development Specialist",
+    organisation:
+      "Ministry of Education and Sports: COVID-19 Education Response Project",
     period: "2020 \u2013 2021",
     summary:
       "Led social safeguards for a World Bank-supported education response project.",
@@ -48,7 +52,8 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    heading: "Gender and Disability Specialist, World Vision Uganda",
+    role: "Gender and Disability Specialist",
+    organisation: "World Vision Uganda",
     period: "2018 \u2013 2019",
     summary:
       "Led gender equality and disability inclusion across national programmes and organisational policy.",
@@ -59,7 +64,7 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    heading: "FAWE Uganda (Forum for African Women Educationalists)",
+    organisation: "FAWE Uganda (Forum for African Women Educationalists)",
     period: "2003 \u2013 2018",
     note: "Grouped on the timeline to show career progression.",
     roles: [
@@ -100,9 +105,10 @@ export const experience: ExperienceItem[] = [
     ],
   },
   {
-    heading: "Project Assistant, AMREF: Water and Sanitation Project",
+    role: "Project Assistant",
+    organisation: "AMREF: Water and Sanitation Project",
+    location: "Rukungiri, Kanungu and Kabale Districts",
     period: "2000 \u2013 2003",
-    note: "Rukungiri, Kanungu and Kabale Districts.",
     summary:
       "Mobilised communities and schools for water, sanitation and hygiene interventions.",
     achievements: [
