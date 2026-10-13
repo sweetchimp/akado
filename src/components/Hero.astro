@@ -2,6 +2,7 @@
 import Button from "./Button.astro";
 import StatsStrip from "./StatsStrip.astro";
 import { hero } from "../data/hero";
+import { site } from "../data/site";
 ---
 
 <section
@@ -49,10 +50,10 @@ import { hero } from "../data/hero";
             class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-secondary/60"
           >
             {
-              hero.headshot.src ? (
+              site.headshot.src ? (
                 <img
-                  src={hero.headshot.src}
-                  alt={hero.headshot.alt}
+                  src={site.headshot.src}
+                  alt={site.headshot.alt}
                   class="h-full w-full object-cover"
                   loading="eager"
                 />

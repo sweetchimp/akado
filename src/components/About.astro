@@ -1,27 +1,73 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { about } from "../data/about";
+import { site } from "../data/site";
 ---
 
 <Section id="about" title="About">
-  <div class="grid gap-12 lg:grid-cols-3">
-    <div class="space-y-5 text-lg leading-relaxed text-ink/80 lg:col-span-2">
-      {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+  <div class="grid items-start gap-12 lg:grid-cols-2">
+    <div>
+      <div class="space-y-5 text-lg leading-relaxed text-ink/80">
+        {about.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+
+      <div class="mt-12 border-t border-primary/15 pt-8">
+        <h3 class="font-serif text-xl font-bold text-primary">Education</h3>
+        <ul class="mt-6 space-y-6">
+          {
+            about.education.map((entry) => (
+              <li class="flex gap-4">
+                <span
+                  class="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-secondary/40 text-primary"
+                  aria-hidden="true"
+                >
+                  <Icon name="graduation-cap" class="h-5 w-5" />
+                </span>
+                <div>
+                  <p class="font-semibold leading-snug text-primary">
+                    {entry.qualification}
+                  </p>
+                  <p class="mt-1 text-sm text-ink/70">
+                    {entry.institution} · {entry.period}
+                  </p>
+                </div>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
 
-    <aside class="lg:col-span-1">
-      <h3 class="font-serif text-xl font-bold text-primary">Education</h3>
-      <ul class="mt-5 space-y-5">
+    <div class="relative mx-auto w-full max-w-sm lg:mx-0 lg:ml-auto">
+      <div
+        class="pointer-events-none absolute -inset-4 -rotate-2 rounded-[2rem] bg-secondary/40 blur-2xl"
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-xl ring-1 ring-primary/15"
+      >
         {
-          about.education.map((entry) => (
-            <li class="border-l-2 border-primary/30 pl-4">
-              <p class="font-semibold text-primary">{entry.qualification}</p>
-              <p class="text-sm text-ink/80">{entry.institution}</p>
-              <p class="text-sm text-ink/60">{entry.period}</p>
-            </li>
-          ))
+          site.headshot.src ? (
+            <img
+              src={site.headshot.src}
+              alt={site.headshot.alt}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div
+              class="flex h-full w-full items-center justify-center bg-primary"
+              aria-hidden="true"
+            >
+              <span class="font-serif text-6xl font-bold text-secondary">
+                DM
+              </span>
+            </div>
+          )
         }
-      </ul>
-    </aside>
+      </div>
+    </div>
   </div>
 </Section>

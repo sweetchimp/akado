@@ -5,6 +5,8 @@ import Section from "../components/Section.astro";
 import Placeholder from "../components/Placeholder.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Expertise from "../components/Expertise.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -22,24 +24,9 @@ import { site } from "../data/site";
   <main>
     <Hero />
 
-    <Section
-      id="about"
-      title="About"
-      eyebrow="Section &middot; white"
-      description="Placeholder intro copy for a white section, using ink body text and primary headings."
-    >
-      <Placeholder cards={0} lines={4} />
-    </Section>
+    <About />
 
-    <Section
-      id="expertise"
-      title="Expertise"
-      eyebrow="Section &middot; surface"
-      variant="surface"
-      description="Placeholder intro copy for a pale lilac section."
-    >
-      <Placeholder cards={6} lines={0} />
-    </Section>
+    <Expertise />
 
     <Section
       id="experience"

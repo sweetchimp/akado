@@ -1,17 +1,18 @@
 ---
 import Section from "./Section.astro";
+import Icon from "./Icon.astro";
 import { expertiseAreas } from "../data/expertise";
 ---
 
 <Section id="expertise" title="Expertise" variant="surface">
   <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
     {
-      expertiseAreas.map((area, index) => (
-        <article class="group flex flex-col rounded-2xl border border-primary/15 bg-white p-6 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md">
-          <span class="font-serif text-sm font-bold text-primary/60">
-            {String(index + 1).padStart(2, "0")}
+      expertiseAreas.map((area) => (
+        <article class="group rounded-2xl border border-primary/15 bg-white p-6 shadow-sm transition-colors duration-200 hover:border-primary/40 hover:shadow-md">
+          <span class="flex h-12 w-12 items-center justify-center rounded-xl bg-secondary/40 text-primary transition-colors duration-200 group-hover:bg-secondary/60">
+            <Icon name={area.icon} class="h-6 w-6" />
           </span>
-          <h3 class="mt-3 font-semibold leading-snug text-primary">
+          <h3 class="mt-5 font-semibold leading-snug text-primary">
             {area.title}
           </h3>
           <p class="mt-2 text-sm leading-relaxed text-ink/80">

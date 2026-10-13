@@ -14,6 +14,7 @@ export const site = {
   email: "doramuhumure77@gmail.com",
   linkedin: "",
   cvUrl: "/Dorothy-Muhumure-CV.pdf",
+  headshot: { src: "", alt: "Portrait of Dorothy Akankwasa Muhumure" },
   footer: "\u00A9 Dorothy Akankwasa Muhumure. All rights reserved.",
 } as const;
 
