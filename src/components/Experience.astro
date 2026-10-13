@@ -5,33 +5,33 @@ import { experience, recentConsultancies } from "../data/experience";
 ---
 
 <Section id="experience" title="Experience">
-  <ol class="relative list-none space-y-12 border-l border-slate-200 pl-8">
+  <ol class="relative list-none space-y-12 border-l border-primary/15 pl-8">
     {
       experience.map((item) => (
         <li class="relative">
-          <span class="absolute -left-10 top-1.5 h-4 w-4 rounded-full border-2 border-brand-600 bg-white"></span>
-          <p class="text-sm font-semibold uppercase tracking-wider text-brand-700">
+          <span class="absolute -left-10 top-1.5 h-4 w-4 rounded-full border-2 border-primary bg-white" />
+          <p class="text-sm font-semibold uppercase tracking-wider text-primary">
             {item.period}
           </p>
-          <h3 class="mt-1 font-serif text-xl font-bold leading-snug text-slate-900">
+          <h3 class="mt-1 font-serif text-xl font-bold leading-snug text-primary">
             {item.heading}
           </h3>
           {item.note && (
-            <p class="mt-1 text-sm italic text-slate-500">{item.note}</p>
+            <p class="mt-1 text-sm italic text-ink/60">{item.note}</p>
           )}
           {item.summary && (
-            <p class="mt-2 leading-relaxed text-slate-600">{item.summary}</p>
+            <p class="mt-2 leading-relaxed text-ink/80">{item.summary}</p>
           )}
 
           {item.roles && (
             <div class="mt-6 space-y-5">
               {item.roles.map((role) => (
-                <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                  <h4 class="font-semibold text-slate-900">{role.title}</h4>
-                  <p class="text-sm font-medium text-brand-700">
+                <div class="rounded-xl border border-primary/10 bg-surface/60 p-5">
+                  <h4 class="font-semibold text-primary">{role.title}</h4>
+                  <p class="text-sm font-medium text-primary/80">
                     {role.period}
                   </p>
-                  <p class="mt-2 text-sm leading-relaxed text-slate-600">
+                  <p class="mt-2 text-sm leading-relaxed text-ink/80">
                     {role.summary}
                   </p>
                   <Achievements items={role.achievements} />
@@ -46,17 +46,17 @@ import { experience, recentConsultancies } from "../data/experience";
     }
   </ol>
 
-  <div class="mt-14 rounded-2xl border border-slate-200 bg-slate-50 p-6 sm:p-8">
-    <h3 class="font-serif text-xl font-bold text-slate-900">
+  <div class="mt-14 rounded-2xl border border-primary/10 bg-surface/60 p-6 sm:p-8">
+    <h3 class="font-serif text-xl font-bold text-primary">
       Recent consultancy assignments
     </h3>
     <ul class="mt-5 grid gap-4 sm:grid-cols-2">
       {
         recentConsultancies.map((item) => (
-          <li class="rounded-xl border border-slate-200 bg-white p-5">
-            <p class="text-sm font-semibold text-brand-700">{item.year}</p>
-            <p class="mt-1 font-semibold text-slate-900">{item.client}</p>
-            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          <li class="rounded-xl border border-primary/10 bg-white p-5">
+            <p class="text-sm font-semibold text-primary">{item.year}</p>
+            <p class="mt-1 font-semibold text-primary">{item.client}</p>
+            <p class="mt-2 text-sm leading-relaxed text-ink/80">
               {item.description}
             </p>
           </li>

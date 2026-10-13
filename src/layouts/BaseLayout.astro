@@ -1,4 +1,5 @@
 ---
+import "../styles/fonts.css";
 import "../styles/global.css";
 
 interface Props {
@@ -20,13 +21,13 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="theme-color" content="#0f766e" />
+    <meta name="theme-color" content="#240046" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="bg-white font-sans text-slate-900 antialiased">
+  <body class="bg-white font-sans text-ink antialiased">
     <slot />
   </body>
 </html>

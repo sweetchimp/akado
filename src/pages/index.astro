@@ -1,13 +1,9 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
-import Hero from "../components/Hero.astro";
-import About from "../components/About.astro";
-import Expertise from "../components/Expertise.astro";
-import Experience from "../components/Experience.astro";
-import Impact from "../components/Impact.astro";
-import Training from "../components/Training.astro";
-import Contact from "../components/Contact.astro";
+import Section from "../components/Section.astro";
+import Placeholder from "../components/Placeholder.astro";
+import Button from "../components/Button.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -15,7 +11,7 @@ import { site } from "../data/site";
 <BaseLayout title={site.metaTitle} description={site.metaDescription}>
   <a
     href="#home"
-    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-primary focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
   >
     Skip to content
   </a>
@@ -23,13 +19,117 @@ import { site } from "../data/site";
   <Header />
 
   <main>
-    <Hero />
-    <About />
-    <Expertise />
-    <Experience />
-    <Impact />
-    <Training />
-    <Contact />
+    <section
+      id="home"
+      data-tone="dark"
+      class="scroll-mt-20 bg-primary px-6 py-24 sm:py-32"
+    >
+      <div class="mx-auto max-w-6xl">
+        <p
+          class="text-xs font-semibold uppercase tracking-[0.25em] text-secondary"
+        >
+          Hero &middot; primary
+        </p>
+        <h1
+          class="mt-5 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl"
+        >
+          Placeholder hero heading
+        </h1>
+        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-secondary">
+          Placeholder supporting copy that shows how light lilac reads on the
+          deep purple hero.
+        </p>
+        <div class="mt-9 flex flex-wrap gap-4">
+          <Button variant="primary" href="#contact">Primary button</Button>
+          <Button variant="outline-light" href="#about">Outline light</Button>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="stats"
+      data-tone="dark"
+      class="scroll-mt-20 bg-ink px-6 py-16"
+    >
+      <dl class="mx-auto grid max-w-6xl grid-cols-2 gap-px sm:grid-cols-4">
+        {
+          ["20+", "UGX 21B+", "10", "23"].map((figure, index) => (
+            <div class="px-6 py-6 text-center">
+              <dt class="sr-only">Statistic {index + 1}</dt>
+              <dd>
+                <span class="block font-serif text-3xl font-bold text-secondary">
+                  {figure}
+                </span>
+                <span class="mx-auto mt-3 block h-0.5 w-8 rounded-full bg-accent" />
+                <span class="mt-3 block text-sm text-secondary/80">
+                  Placeholder label
+                </span>
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <Section
+      id="about"
+      title="About"
+      eyebrow="Section &middot; white"
+      description="Placeholder intro copy for a white section, using ink body text and primary headings."
+    >
+      <Placeholder cards={0} lines={4} />
+    </Section>
+
+    <Section
+      id="expertise"
+      title="Expertise"
+      eyebrow="Section &middot; surface"
+      variant="surface"
+      description="Placeholder intro copy for a pale lilac section."
+    >
+      <Placeholder cards={6} lines={0} />
+    </Section>
+
+    <Section
+      id="experience"
+      title="Experience"
+      eyebrow="Section &middot; white"
+      description="Placeholder intro copy for a white section following pale lilac."
+    >
+      <Placeholder cards={3} lines={2} />
+    </Section>
+
+    <Section
+      id="impact"
+      title="Impact"
+      eyebrow="Section &middot; primary"
+      variant="primary"
+      description="Placeholder intro copy for a dark purple section, showing secondary text on primary."
+    >
+      <Placeholder tone="dark" cards={4} lines={0} />
+    </Section>
+
+    <Section
+      id="training"
+      title="Training &amp; Mentorship"
+      eyebrow="Section &middot; surface"
+      variant="surface"
+      description="Placeholder intro copy for a pale lilac section."
+    >
+      <Placeholder cards={2} lines={0} />
+    </Section>
+
+    <Section
+      id="contact"
+      title="Contact"
+      eyebrow="Section &middot; white"
+      description="Placeholder intro copy for a white section, demonstrating the outline dark button."
+    >
+      <div class="flex flex-wrap gap-4">
+        <Button variant="primary" href="#home">Primary button</Button>
+        <Button variant="outline-dark" href="#about">Outline dark</Button>
+      </div>
+    </Section>
   </main>
 
   <Footer />

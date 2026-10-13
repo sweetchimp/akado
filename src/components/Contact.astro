@@ -1,29 +1,30 @@
 ---
 import Section from "./Section.astro";
+import Button from "./Button.astro";
 import { contact } from "../data/contact";
 import { site } from "../data/site";
 
 const inputClass =
-  "mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-2.5 text-slate-900 shadow-sm outline-none transition focus:border-brand-500 focus:ring-2 focus:ring-brand-500/30";
-const labelClass = "block text-sm font-medium text-slate-700";
+  "mt-2 w-full rounded-lg border border-primary/20 bg-white px-4 py-2.5 text-ink shadow-sm outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/30";
+const labelClass = "block text-sm font-medium text-ink";
 ---
 
 <Section id="contact" title={contact.heading} description={contact.intro}>
   <div class="grid gap-10 lg:grid-cols-5">
     <div class="space-y-6 lg:col-span-2">
       <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary">
           Location
         </p>
-        <p class="mt-1 text-slate-900">{site.location}</p>
+        <p class="mt-1 text-ink">{site.location}</p>
       </div>
       <div>
-        <p class="text-sm font-semibold uppercase tracking-wider text-slate-500">
+        <p class="text-sm font-semibold uppercase tracking-wider text-primary">
           Email
         </p>
         <a
           href={`mailto:${site.email}`}
-          class="mt-1 inline-block font-medium text-brand-700 transition-colors hover:text-brand-800"
+          class="mt-1 inline-block font-medium text-primary underline-offset-4 transition-colors hover:text-primary/80 hover:underline"
         >
           {site.email}
         </a>
@@ -35,7 +36,7 @@ const labelClass = "block text-sm font-medium text-slate-700";
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      class="grid gap-5 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8 lg:col-span-3"
+      class="grid gap-5 rounded-2xl border border-primary/15 bg-surface/40 p-6 shadow-sm sm:p-8 lg:col-span-3"
     >
       <input type="hidden" name="form-name" value="contact" />
       <p class="hidden">
@@ -67,7 +68,9 @@ const labelClass = "block text-sm font-medium text-slate-700";
       </div>
 
       <div>
-        <label class={labelClass} for="organisation">Organisation (optional)</label>
+        <label class={labelClass} for="organisation"
+          >Organisation (optional)</label
+        >
         <input
           class={inputClass}
           type="text"
@@ -87,12 +90,9 @@ const labelClass = "block text-sm font-medium text-slate-700";
           required></textarea>
       </div>
 
-      <button
-        type="submit"
-        class="justify-self-start rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
-      >
+      <Button type="submit" variant="primary" class="justify-self-start">
         Send message
-      </button>
+      </Button>
     </form>
   </div>
 </Section>
