@@ -2,12 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Section from "../components/Section.astro";
-import Placeholder from "../components/Placeholder.astro";
 import Button from "../components/Button.astro";
 import Hero from "../components/Hero.astro";
 import About from "../components/About.astro";
 import Expertise from "../components/Expertise.astro";
 import Experience from "../components/Experience.astro";
+import Impact from "../components/Impact.astro";
+import Training from "../components/Training.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -31,25 +32,9 @@ import { site } from "../data/site";
 
     <Experience />
 
-    <Section
-      id="impact"
-      title="Impact"
-      eyebrow="Section &middot; primary"
-      variant="primary"
-      description="Placeholder intro copy for a dark purple section, showing secondary text on primary."
-    >
-      <Placeholder tone="dark" cards={4} lines={0} />
-    </Section>
+    <Impact />
 
-    <Section
-      id="training"
-      title="Training &amp; Mentorship"
-      eyebrow="Section &middot; surface"
-      variant="surface"
-      description="Placeholder intro copy for a pale lilac section."
-    >
-      <Placeholder cards={2} lines={0} />
-    </Section>
+    <Training />
 
     <Section
       id="contact"
