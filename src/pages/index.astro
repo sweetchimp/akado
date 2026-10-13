@@ -1,23 +1,36 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import About from "../components/About.astro";
+import Expertise from "../components/Expertise.astro";
+import Experience from "../components/Experience.astro";
+import Impact from "../components/Impact.astro";
+import Training from "../components/Training.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { site } from "../data/site";
 ---
 
-<BaseLayout title="Dorothy Akankwasa Muhumure">
-  <main
-    class="mx-auto flex min-h-screen max-w-3xl flex-col justify-center gap-4 px-6"
+<BaseLayout title={site.metaTitle} description={site.metaDescription}>
+  <a
+    href="#home"
+    class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-brand-700 focus:px-4 focus:py-2 focus:text-sm focus:font-semibold focus:text-white"
   >
-    <p class="text-sm font-medium uppercase tracking-widest text-sky-700">
-      Personal Website
-    </p>
-    <h1 class="text-4xl font-bold tracking-tight sm:text-5xl">
-      Dorothy Akankwasa Muhumure
-    </h1>
-    <p class="text-lg text-slate-600">
-      Social Development, Education &amp; Policy Advocacy Specialist &middot;
-      Kampala, Uganda
-    </p>
-    <p class="text-slate-500">
-      Project scaffolding complete. Site sections coming soon.
-    </p>
+    Skip to content
+  </a>
+
+  <Header />
+
+  <main>
+    <Hero />
+    <About />
+    <Expertise />
+    <Experience />
+    <Impact />
+    <Training />
+    <Contact />
   </main>
+
+  <Footer />
 </BaseLayout>

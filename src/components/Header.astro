@@ -1,0 +1,102 @@
+---
+import { navItems, site } from "../data/site";
+---
+
+<header
+  class="sticky top-0 z-50 border-b border-slate-200 bg-white/90 backdrop-blur"
+>
+  <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
+    <a
+      href="#home"
+      class="font-serif text-lg font-bold tracking-tight text-slate-900"
+    >
+      Dorothy A. Muhumure
+    </a>
+
+    <nav aria-label="Primary" class="hidden items-center gap-7 lg:flex">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-sm font-medium text-slate-600 transition-colors hover:text-brand-700"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <a
+        href={site.cvUrl}
+        class="hidden rounded-full bg-brand-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700 sm:inline-block"
+      >
+        Download CV
+      </a>
+      <button
+        type="button"
+        id="menu-toggle"
+        class="inline-flex items-center justify-center rounded-md p-2 text-slate-700 transition-colors hover:bg-slate-100 lg:hidden"
+        aria-controls="mobile-menu"
+        aria-expanded="false"
+        aria-label="Toggle navigation menu"
+      >
+        <svg
+          class="h-6 w-6"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          aria-hidden="true"
+        >
+          <path d="M4 7h16M4 12h16M4 17h16"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <nav
+    id="mobile-menu"
+    aria-label="Mobile"
+    class="hidden border-t border-slate-200 bg-white lg:hidden"
+  >
+    <div class="mx-auto flex max-w-6xl flex-col px-6 py-2">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            class="border-b border-slate-100 py-3 text-sm font-medium text-slate-700 transition-colors last:border-none hover:text-brand-700"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <a
+        href={site.cvUrl}
+        class="my-3 rounded-full bg-brand-600 px-5 py-2 text-center text-sm font-semibold text-white sm:hidden"
+      >
+        Download CV
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+
+  if (toggle && menu) {
+    toggle.addEventListener("click", () => {
+      const isHidden = menu.classList.toggle("hidden");
+      toggle.setAttribute("aria-expanded", String(!isHidden));
+    });
+
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        menu.classList.add("hidden");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+  }
+</script>

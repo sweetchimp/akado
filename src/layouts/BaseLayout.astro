@@ -8,7 +8,7 @@ interface Props {
 
 const {
   title,
-  description = "Personal website of Dorothy Akankwasa Muhumure, a Social Development, Education & Policy Advocacy Specialist based in Kampala, Uganda.",
+  description = "Social development, education and policy advocacy specialist based in Kampala, Uganda.",
 } = Astro.props;
 ---
 
@@ -20,8 +20,13 @@ const {
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#0f766e" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
-  <body class="min-h-screen bg-white text-slate-900 antialiased">
+  <body class="bg-white font-sans text-slate-900 antialiased">
     <slot />
   </body>
 </html>

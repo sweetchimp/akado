@@ -1,0 +1,30 @@
+---
+interface Props {
+  items: string[];
+}
+
+const { items } = Astro.props;
+---
+
+<details class="group mt-4">
+  <summary
+    class="inline-flex cursor-pointer list-none items-center gap-2 text-sm font-semibold text-brand-700 transition-colors hover:text-brand-800"
+  >
+    Key achievements
+    <svg
+      class="h-4 w-4 transition-transform group-open:rotate-180"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M5.23 7.21a.75.75 0 0 1 1.06.02L10 11.17l3.71-3.94a.75.75 0 1 1 1.08 1.04l-4.25 4.5a.75.75 0 0 1-1.08 0l-4.25-4.5a.75.75 0 0 1 .02-1.06Z"
+        clip-rule="evenodd"
+      ></path>
+    </svg>
+  </summary>
+  <ul class="mt-3 list-disc space-y-2 pl-5 text-sm leading-relaxed text-slate-600">
+    {items.map((item) => <li>{item}</li>)}
+  </ul>
+</details>

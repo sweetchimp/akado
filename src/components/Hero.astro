@@ -1,0 +1,42 @@
+---
+import { hero } from "../data/hero";
+import StatsStrip from "./StatsStrip.astro";
+---
+
+<section
+  id="home"
+  class="relative scroll-mt-20 overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white"
+>
+  <div class="mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
+    <p class="text-sm font-semibold uppercase tracking-[0.25em] text-brand-700">
+      {hero.eyebrow}
+    </p>
+    <h1
+      class="mt-5 max-w-3xl font-serif text-4xl font-bold tracking-tight text-slate-900 sm:text-5xl md:text-6xl"
+    >
+      {hero.name}
+    </h1>
+    <p class="mt-4 text-xl font-medium text-brand-800 sm:text-2xl">
+      {hero.title}
+    </p>
+    <p class="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
+      {hero.valueStatement}
+    </p>
+    <div class="mt-9 flex flex-wrap gap-4">
+      <a
+        href={hero.primaryCta.href}
+        class="rounded-full bg-brand-600 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-700"
+      >
+        {hero.primaryCta.label}
+      </a>
+      <a
+        href={hero.secondaryCta.href}
+        class="rounded-full border border-slate-300 bg-white px-6 py-3 text-sm font-semibold text-slate-700 transition-colors hover:border-brand-400 hover:text-brand-700"
+      >
+        {hero.secondaryCta.label}
+      </a>
+    </div>
+  </div>
+
+  <StatsStrip />
+</section>
