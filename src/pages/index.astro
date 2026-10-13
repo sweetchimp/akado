@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Section from "../components/Section.astro";
 import Placeholder from "../components/Placeholder.astro";
 import Button from "../components/Button.astro";
+import Hero from "../components/Hero.astro";
 import Footer from "../components/Footer.astro";
 import { site } from "../data/site";
 ---
@@ -19,57 +20,7 @@ import { site } from "../data/site";
   <Header />
 
   <main>
-    <section
-      id="home"
-      data-tone="dark"
-      class="scroll-mt-20 bg-primary px-6 py-24 sm:py-32"
-    >
-      <div class="mx-auto max-w-6xl">
-        <p
-          class="text-xs font-semibold uppercase tracking-[0.25em] text-secondary"
-        >
-          Hero &middot; primary
-        </p>
-        <h1
-          class="mt-5 max-w-3xl font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl"
-        >
-          Placeholder hero heading
-        </h1>
-        <p class="mt-5 max-w-2xl text-lg leading-relaxed text-secondary">
-          Placeholder supporting copy that shows how light lilac reads on the
-          deep purple hero.
-        </p>
-        <div class="mt-9 flex flex-wrap gap-4">
-          <Button variant="primary" href="#contact">Primary button</Button>
-          <Button variant="outline-light" href="#about">Outline light</Button>
-        </div>
-      </div>
-    </section>
-
-    <section
-      id="stats"
-      data-tone="dark"
-      class="scroll-mt-20 bg-ink px-6 py-16"
-    >
-      <dl class="mx-auto grid max-w-6xl grid-cols-2 gap-px sm:grid-cols-4">
-        {
-          ["20+", "UGX 21B+", "10", "23"].map((figure, index) => (
-            <div class="px-6 py-6 text-center">
-              <dt class="sr-only">Statistic {index + 1}</dt>
-              <dd>
-                <span class="block font-serif text-3xl font-bold text-secondary">
-                  {figure}
-                </span>
-                <span class="mx-auto mt-3 block h-0.5 w-8 rounded-full bg-accent" />
-                <span class="mt-3 block text-sm text-secondary/80">
-                  Placeholder label
-                </span>
-              </dd>
-            </div>
-          ))
-        }
-      </dl>
-    </section>
+    <Hero />
 
     <Section
       id="about"
