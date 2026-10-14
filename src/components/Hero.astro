@@ -1,6 +1,7 @@
 ---
 import Button from "./Button.astro";
 import StatsStrip from "./StatsStrip.astro";
+import PartnersStrip from "./PartnersStrip.astro";
 import { hero } from "../data/hero";
 import { site } from "../data/site";
 ---
@@ -21,15 +22,12 @@ import { site } from "../data/site";
         <h1
           class="mt-5 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl"
         >
-          {hero.name}
+          {hero.headline}
         </h1>
-        <p class="mt-4 text-xl font-medium text-secondary sm:text-2xl">
-          {hero.title}
-        </p>
         <p class="mt-6 max-w-2xl text-lg leading-relaxed text-secondary/90">
-          {hero.valueStatement}
+          {hero.subheadline}
         </p>
-        <div class="mt-9 flex flex-wrap gap-4">
+        <div class="mt-9 flex flex-wrap items-center gap-4">
           <Button variant="primary" href={hero.primaryCta.href}>
             {hero.primaryCta.label}
           </Button>
@@ -37,17 +35,19 @@ import { site } from "../data/site";
             {hero.secondaryCta.label}
           </Button>
         </div>
+        <a
+          href={hero.tertiaryLink.href}
+          class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-secondary underline-offset-4 transition-colors hover:text-white hover:underline"
+        >
+          {hero.tertiaryLink.label}
+          <span aria-hidden="true">&rarr;</span>
+        </a>
       </div>
 
       <div class="lg:col-span-5">
         <div class="relative mx-auto w-full max-w-sm">
           <div
-            class="pointer-events-none absolute -inset-4 rotate-3 rounded-[2rem] bg-secondary/15 blur-2xl"
-            aria-hidden="true"
-          >
-          </div>
-          <div
-            class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-secondary/60"
+            class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-secondary/60"
           >
             {
               site.headshot.src ? (
@@ -75,4 +75,5 @@ import { site } from "../data/site";
   </div>
 
   <StatsStrip />
+  <PartnersStrip />
 </section>

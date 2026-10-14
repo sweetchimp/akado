@@ -9,7 +9,10 @@ export const stats: Stat[] = [
   { value: 20, suffix: "+", label: "Years of experience" },
   { value: 21, prefix: "UGX ", suffix: "B+", label: "Donor funding mobilised" },
   { value: 10, label: "Countries trained in gender-responsive pedagogy" },
-  { value: 23, label: "Schools supported in Ntoroko District (2024)" },
+  {
+    value: 23,
+    label: "Schools supported in a single district programme (2024)",
+  },
 ];
 
 export function formatStat(stat: Stat): string {

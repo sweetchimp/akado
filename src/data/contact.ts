@@ -1,10 +1,21 @@
 export const contact = {
-  heading: "Let's work together",
+  heading: "Let's talk about your project",
   intro:
-    "Whether you are planning an education programme, strengthening safeguarding, or looking for training and advisory support, get in touch.",
+    "Tell me about your organisation and what you need. I'll respond promptly to discuss scope, timeline and how I can help.",
+  interestLabel: "I'm interested in",
+  interests: [
+    "Safeguarding & PSEAH",
+    "Gender, Disability & Social Inclusion",
+    "Education Research, Review & Advocacy",
+    "Training & Capacity Building",
+    "Grants Management & Resource Mobilisation",
+    "Leadership, Mentorship & Speaking",
+    "Something else",
+  ],
+  buttonLabel: "Send enquiry",
   successHeading: "Thank you for getting in touch",
   successBody:
-    "Your message has been sent. I usually reply within a couple of working days.",
+    "Your message has been sent. I'll respond promptly to discuss scope, timeline and how I can help.",
   generalError:
     "Sorry, something went wrong while sending your message. Please try again, or email me directly.",
   errors: {

@@ -4,17 +4,49 @@ export interface EducationEntry {
   period: string;
 }
 
-export interface AboutContent {
+export interface AboutBlock {
+  title: string;
   paragraphs: string[];
+}
+
+export interface AboutContent {
+  identityTags: string[];
+  lead: string;
+  blocks: AboutBlock[];
+  closingLine: string;
   education: EducationEntry[];
 }
 
 export const about: AboutContent = {
-  paragraphs: [
-    "Dorothy is a Social Development, Education and Advocacy Specialist with more than two decades of experience in policy advocacy, education programming, social protection, gender and disability inclusion, child protection and psychosocial well-being. Her work spans Uganda and the wider East, West and Central African regions, including displacement and refugee/host-community contexts.",
-    "She holds a Master of Arts in Social Sector Planning and Management from Makerere University. She translates field evidence into policy briefs, advocacy tools and communication materials, leads engagement with government ministries (including the Ministry of Education and Sports), Members of Parliament and donor missions, and designs capacity-building programmes for national institutions, teachers, community structures and civil society.",
-    "Her grounding in gender-responsive pedagogy, life skills, GBV/SEA prevention and child protection, combined with her research, communication and relationship-building strengths, lets her bridge field evidence with national and regional policy influence.",
+  identityTags: [
+    "Social Development & Protection Professional",
+    "Leadership & People Development Practitioner",
+    "Inspirational Speaker",
+    "Spiritual Mentor",
   ],
+  lead: "I empower people and strengthen communities, through professional practice and through faith.",
+  blocks: [
+    {
+      title: "Professional journey",
+      paragraphs: [
+        "Over more than twenty years, I have worked across policy advocacy, education programming, social protection, gender and disability inclusion, and child protection in Uganda and across East, West and Central Africa. My experience includes FAWE Uganda, World Vision Uganda, the Ministry of Education and Sports, and independent consultancy. I hold an MA in Social Sector Planning and Management from Makerere University.",
+      ],
+    },
+    {
+      title: "How I work",
+      paragraphs: [
+        "My strengths are training, mentorship, leadership development and capacity strengthening. I build effective teams, nurture talent, and help organisations achieve meaningful and sustainable results. Whether I am facilitating a workshop, mentoring an individual, inspiring an audience or supporting organisational development, my aim is to equip people and strengthen purpose.",
+      ],
+    },
+    {
+      title: "Faith & ministry",
+      paragraphs: [
+        "For the past three years, alongside my professional work, I have been engaged in spiritual development and ministry through Bible-based teaching, prayer, fellowship and spiritual mentorship. Through shared Bible study, prayer gatherings and reflective conversations, I help people deepen their understanding of God\u2019s Word, grow in faith and apply biblical principles to everyday life.",
+      ],
+    },
+  ],
+  closingLine:
+    "My approach brings together professional competence, people-centred leadership and faith-informed values, with a commitment to lasting transformation in individuals, organisations and communities.",
   education: [
     {
       qualification: "MA, Social Sector Planning and Management",

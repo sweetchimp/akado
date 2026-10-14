@@ -154,6 +154,17 @@ const labelClass = "block text-sm font-medium text-ink";
         </div>
 
         <div>
+          <label class={labelClass} for="interest">{contact.interestLabel}</label>
+          <select class={inputClass} id="interest" name="interest">
+            {
+              contact.interests.map((interest) => (
+                <option value={interest}>{interest}</option>
+              ))
+            }
+          </select>
+        </div>
+
+        <div>
           <label class={labelClass} for="message">Message</label>
           <textarea
             class={inputClass}
@@ -175,7 +186,7 @@ const labelClass = "block text-sm font-medium text-ink";
           variant="primary"
           class="justify-self-start disabled:cursor-not-allowed disabled:opacity-60"
         >
-          Send message
+          {contact.buttonLabel}
         </Button>
       </form>
 

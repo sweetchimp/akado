@@ -1,12 +1,13 @@
 ---
-import type { ExpertiseIcon } from "../data/expertise";
+import type { ServiceIcon } from "../data/services";
 
 export type IconName =
-  | ExpertiseIcon
+  | ServiceIcon
   | "map-pin"
   | "mail"
   | "alert-circle"
-  | "check-circle";
+  | "check-circle"
+  | "book-open";
 
 interface Props {
   name: IconName;
@@ -16,14 +17,6 @@ interface Props {
 const { name, class: className = "h-6 w-6" } = Astro.props;
 
 const icons: Record<IconName, string> = {
-  landmark: `
-    <line x1="3" y1="22" x2="21" y2="22" />
-    <line x1="6" y1="18" x2="6" y2="11" />
-    <line x1="10" y1="18" x2="10" y2="11" />
-    <line x1="14" y1="18" x2="14" y2="11" />
-    <line x1="18" y1="18" x2="18" y2="11" />
-    <polygon points="12 2 20 7 4 7" />
-  `,
   "file-text": `
     <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" />
     <path d="M14 2v4a2 2 0 0 0 2 2h4" />
@@ -58,12 +51,6 @@ const icons: Record<IconName, string> = {
     <circle cx="16" cy="9" r="2.9" />
     <circle cx="6" cy="5" r="3" />
   `,
-  "chart-bar": `
-    <path d="M3 3v16a2 2 0 0 0 2 2h16" />
-    <path d="M7 16h8" />
-    <path d="M7 11h12" />
-    <path d="M7 6h3" />
-  `,
   "map-pin": `
     <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
     <circle cx="12" cy="10" r="3" />
@@ -80,6 +67,10 @@ const icons: Record<IconName, string> = {
   "check-circle": `
     <path d="M21.801 10A10 10 0 1 1 17 3.335" />
     <path d="m9 11 3 3L22 4" />
+  `,
+  "book-open": `
+    <path d="M12 7v14" />
+    <path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
   `,
 };
 ---

@@ -1,0 +1,29 @@
+---
+import { partners } from "../data/partners";
+---
+
+<div class="border-t border-white/10 bg-ink" data-tone="dark">
+  <div class="mx-auto max-w-6xl px-6 py-10">
+    <p
+      class="text-center text-xs font-semibold uppercase tracking-[0.25em] text-secondary"
+    >
+      Partners and funders I have worked with
+    </p>
+    <ul
+      class="mt-5 flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-sm text-white/80"
+    >
+      {
+        partners.map((partner, index) => (
+          <li class="flex items-center gap-x-3">
+            {index > 0 && (
+              <span aria-hidden="true" class="text-secondary/60">
+                &middot;
+              </span>
+            )}
+            <span>{partner}</span>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</div>

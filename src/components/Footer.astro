@@ -1,5 +1,5 @@
 ---
-import { site } from "../data/site";
+import { navItems, site } from "../data/site";
 ---
 
 <footer class="bg-ink" data-tone="dark">
@@ -7,11 +7,28 @@ import { site } from "../data/site";
     class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm sm:flex-row"
   >
     <p class="text-secondary">{site.footer}</p>
-    <a
-      href={`mailto:${site.email}`}
-      class="font-medium text-white transition-colors hover:text-secondary"
+    <nav
+      aria-label="Quick links"
+      class="flex flex-wrap items-center justify-center gap-x-3 gap-y-2"
     >
-      {site.email}
-    </a>
+      <span class="text-secondary">Quick links:</span>
+      {
+        navItems.map((item, index) => (
+          <>
+            {index > 0 && (
+              <span aria-hidden="true" class="text-secondary/60">
+                &middot;
+              </span>
+            )}
+            <a
+              href={item.href}
+              class="font-medium text-white transition-colors hover:text-secondary"
+            >
+              {item.label}
+            </a>
+          </>
+        ))
+      }
+    </nav>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 ---
 import Button from "./Button.astro";
-import { navItems, site } from "../data/site";
+import { navItems, navCta, site } from "../data/site";
 ---
 
 <header
@@ -9,9 +9,9 @@ import { navItems, site } from "../data/site";
   <div class="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-4">
     <a
       href="#home"
-      class="font-serif text-lg font-bold tracking-tight text-primary"
+      class="font-serif text-base font-bold tracking-tight text-primary sm:text-lg"
     >
-      Dorothy A. Muhumure
+      {site.brand}
     </a>
 
     <nav aria-label="Primary" class="hidden items-center gap-7 lg:flex">
@@ -19,6 +19,7 @@ import { navItems, site } from "../data/site";
         navItems.map((item) => (
           <a
             href={item.href}
+            data-nav-link
             class="text-sm font-medium text-ink transition-colors hover:text-primary"
           >
             {item.label}
@@ -29,12 +30,12 @@ import { navItems, site } from "../data/site";
 
     <div class="flex items-center gap-3">
       <Button
-        href={site.cvUrl}
+        href={navCta.href}
         variant="primary"
         size="sm"
         class="hidden sm:inline-flex"
       >
-        Download CV
+        {navCta.label}
       </Button>
       <button
         type="button"
@@ -69,6 +70,7 @@ import { navItems, site } from "../data/site";
         navItems.map((item) => (
           <a
             href={item.href}
+            data-nav-link
             class="border-b border-primary/5 py-3 text-sm font-medium text-ink transition-colors last:border-none hover:text-primary"
           >
             {item.label}
@@ -76,12 +78,12 @@ import { navItems, site } from "../data/site";
         ))
       }
       <Button
-        href={site.cvUrl}
+        href={navCta.href}
         variant="primary"
         size="sm"
-        class="my-3 sm:hidden"
+        class="my-3 w-full sm:hidden"
       >
-        Download CV
+        {navCta.label}
       </Button>
     </div>
   </nav>
@@ -103,5 +105,67 @@ import { navItems, site } from "../data/site";
         toggle.setAttribute("aria-expanded", "false");
       });
     });
+  }
+
+  const navLinks = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>("a[data-nav-link]"),
+  );
+
+  if (navLinks.length > 0) {
+    const activeClasses = [
+      "text-primary",
+      "font-semibold",
+      "underline",
+      "decoration-accent",
+      "decoration-2",
+      "underline-offset-8",
+    ];
+
+    const setActive = (hash: string) => {
+      navLinks.forEach((link) => {
+        const isActive = link.hash === hash;
+        link.classList.toggle("text-ink", !isActive);
+        activeClasses.forEach((cls) => link.classList.toggle(cls, isActive));
+        if (isActive) {
+          link.setAttribute("aria-current", "true");
+        } else {
+          link.removeAttribute("aria-current");
+        }
+      });
+    };
+
+    const ids = Array.from(
+      new Set(
+        navLinks
+          .map((link) => link.hash.replace(/^#/, ""))
+          .filter((id) => id.length > 0),
+      ),
+    );
+
+    const sections = ids
+      .map((id) => document.getElementById(id))
+      .filter((section): section is HTMLElement => section !== null);
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => setActive(link.hash));
+    });
+
+    if (sections.length > 0 && "IntersectionObserver" in window) {
+      let current = "";
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              current = `#${entry.target.id}`;
+            }
+          });
+          setActive(current);
+        },
+        { rootMargin: "-88px 0px -55% 0px", threshold: 0 },
+      );
+
+      sections.forEach((section) => observer.observe(section));
+    }
   }
 </script>
