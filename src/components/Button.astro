@@ -1,5 +1,5 @@
 ---
-type Variant = "primary" | "outline-light" | "outline-dark";
+type Variant = "primary" | "outline-light";
 type Size = "sm" | "md";
 
 interface Props {
@@ -30,8 +30,6 @@ const variants: Record<Variant, string> = {
   primary: "bg-accent text-ink hover:bg-accent-hover",
   "outline-light":
     "border border-secondary/60 text-white hover:border-secondary hover:bg-secondary/10",
-  "outline-dark":
-    "border border-primary/40 text-primary hover:border-primary hover:bg-primary/5",
 };
 
 const classes = `${base} ${sizes[size]} ${variants[variant]} ${className}`;

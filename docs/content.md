@@ -21,19 +21,19 @@ Source of truth for all site copy. The site's main purpose is to position Doroth
 
 ## Navigation
 
-About · Services · Approach · Track Record · Contact
-(Primary button in the nav: **Request a consultation**)
+About · Services · Experience · Contact
+(Primary button in the nav: **Work with me**)
 
 ---
 
 ## Home (hero)
 
 - **Eyebrow:** Independent Consultant · Kampala, Uganda
-- **Headline:** Evidence-led advisory for education, inclusion and child protection.
-- **Subheadline:** I help NGOs, donors, government agencies and institutions design stronger programmes, protect the people they serve, and build teams that deliver lasting results. Backed by 20+ years across Uganda and the wider African region.
-- **Primary button:** Request a consultation (scrolls to Contact)
-- **Secondary button:** View services (scrolls to Services)
-- **Tertiary link:** Download capability statement
+- **Name:** Dorothy Akankwasa Muhumure
+- **Lead statement:** I empower people and strengthen communities, through professional practice and through faith.
+- **Identity tags:** Social Development & Protection Professional · Leadership & People Development Practitioner · Inspirational Speaker · Spiritual Mentor
+- **Primary button:** Work with me (scrolls to Contact)
+- **Secondary button:** My story (scrolls to About)
 
 ### Stats strip
 
@@ -81,8 +81,11 @@ For the past three years, alongside my professional work, I have been engaged in
 
 ## Services
 
+**Kicker:** Evidence-led advisory for education, inclusion and child protection.
 **Section heading:** How I can help
-**Intro:** Six areas of advisory, training and technical support, tailored to your organisation, your context and your funders' requirements.
+**Lead-in:** This work grows out of more than twenty years alongside communities, organisations and funders.
+**Intro:** I help NGOs, donors, government agencies and institutions design stronger programmes, protect the people they serve, and build teams that deliver lasting results. Backed by 20+ years across Uganda and the wider African region.
+**Retired line (not displayed on the site):** Six areas of advisory, training and technical support, tailored to your organisation, your context and your funders' requirements.
 
 ### 1. Safeguarding & PSEAH
 
@@ -146,33 +149,7 @@ For the past three years, alongside my professional work, I have been engaged in
 
 ---
 
-## Approach
-
-**Section heading:** How I work
-**Intro:** Every engagement is practical, evidence-based and tailored to your context.
-
-1. **Listen and diagnose:** I start by understanding your goals, your context and your funder or regulatory requirements.
-2. **Design a fit-for-purpose approach:** A clear scope, timeline and deliverables, with no generic templates.
-3. **Deliver with rigour:** Careful fieldwork, survivor-centred and inclusive practice, and regular communication.
-4. **Leave capacity behind:** Practical tools, trained people and systems that your team can keep using.
-
-**Principles:** Evidence-led · Inclusive and survivor-centred · People-first · Accountable to funders and communities
-
----
-
-## Who I work with
-
-- **NGOs and civil society organisations**
-- **Donors and development partners**
-- **Government ministries and agencies**
-- **Schools, universities and research institutions**
-- **Refugee-response and humanitarian organisations**
-
-Engagement types: short-term consultancies, assignments and evaluations, training and workshops, and ongoing advisory support. (Availability wording to be confirmed with client.)
-
----
-
-## Track Record
+## Experience
 
 **Section heading:** Results that speak for themselves
 
@@ -208,29 +185,58 @@ Collapsible, newest first.
 
 ---
 
+## How I Work
+
+**Section heading:** How I work
+**Intro:** Every engagement is practical, evidence-based and tailored to your context.
+
+1. **Listen and diagnose:** I start by understanding your goals, your context and your funder or regulatory requirements.
+2. **Design a fit-for-purpose approach:** A clear scope, timeline and deliverables, with no generic templates.
+3. **Deliver with rigour:** Careful fieldwork, survivor-centred and inclusive practice, and regular communication.
+4. **Leave capacity behind:** Practical tools, trained people and systems that your team can keep using.
+
+**Principles:** Evidence-led · Inclusive and survivor-centred · People-first · Accountable to funders and communities
+
+**Who I work with:** NGOs and civil society organisations · Donors and development partners · Government ministries and agencies · Schools, universities and research institutions · Refugee-response and humanitarian organisations
+
+Engagement types: short-term consultancies, assignments and evaluations, training and workshops, and ongoing advisory support. (Availability wording to be confirmed with client.)
+
+---
+
 ## Contact
 
-- **Heading:** Let's talk about your project
+- **Heading:** Get in touch
 - **Intro:** Tell me about your organisation and what you need. I'll respond promptly to discuss scope, timeline and how I can help.
 - **Location:** Kampala, Uganda
 - **Email:** doramuhumure77@gmail.com
-- **Form fields:** Name, Email, Organisation, I'm interested in (dropdown: Safeguarding & PSEAH / Gender, Disability & Social Inclusion / Education Research, Review & Advocacy / Training & Capacity Building / Grants Management & Resource Mobilisation / Leadership, Mentorship & Speaking / Something else), Message
-- **Button:** Send enquiry
+- **Email CTA heading:** Email me directly
+- **Email CTA text:** The quickest way to reach me is by email. Send me a message and I'll respond promptly to discuss scope, timeline and how I can help.
+- **Email button label:** Send an email
+- **Contact method:** Email only (mailto link) — the contact form has been removed
+- **Downloads:** CV PDF (/dorothy_muhumure_cv.pdf)
+- **Download link labels:** Download CV
+
+---
+
+## Hosting
+
+- **Platform:** Railway (single service). Astro runs with the Node adapter in standalone mode; the page is prerendered to static HTML.
+- **Environment variables:** None (the site is static and contact is email-only).
 
 ---
 
 ## Footer
 
 © Dorothy Akankwasa Muhumure. All rights reserved.
-Quick links: Services · Approach · Track Record · About · Contact
+Quick links: About · Services · Experience · Contact
 
 ---
 
 ## Items still needed from the client
 
 - Final consultancy/business name (and logo if she has one)
-- Professional headshot and a few training or field photos
-- Capability statement PDF (one or two pages: services, track record, contact) and CV PDF
+- Professional headshot — received (`public/dorothy.jpg`); no training or field photos planned
+- Capability statement PDF — not shown on the site (download button removed); CV PDF — received (`public/dorothy_muhumure_cv.pdf`)
 - LinkedIn URL
 - Real testimonials from partners or colleagues, with permission to publish
 - Confirmation she is happy for her email to be public

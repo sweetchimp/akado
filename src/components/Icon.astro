@@ -5,8 +5,6 @@ export type IconName =
   | ServiceIcon
   | "map-pin"
   | "mail"
-  | "alert-circle"
-  | "check-circle"
   | "book-open";
 
 interface Props {
@@ -58,15 +56,6 @@ const icons: Record<IconName, string> = {
   mail: `
     <rect x="2" y="4" width="20" height="16" rx="2" />
     <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-  `,
-  "alert-circle": `
-    <circle cx="12" cy="12" r="10" />
-    <path d="M12 8v4" />
-    <path d="M12 16h.01" />
-  `,
-  "check-circle": `
-    <path d="M21.801 10A10 10 0 1 1 17 3.335" />
-    <path d="m9 11 3 3L22 4" />
   `,
   "book-open": `
     <path d="M12 7v14" />

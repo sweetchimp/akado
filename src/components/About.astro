@@ -12,10 +12,16 @@ const blockIcons: Record<string, IconName> = {
 };
 ---
 
-<Section id="about" title="About me">
+<Section
+  id="about"
+  title="About me"
+  class="bg-gradient-to-b from-white to-surface/20"
+>
   <div class="grid items-start gap-12 lg:grid-cols-2">
     <div>
-      <p class="text-lg leading-relaxed text-ink/80">{about.lead}</p>
+      <p class="text-xl leading-relaxed text-ink/80 sm:text-2xl">
+        {about.lead}
+      </p>
 
       <ul class="mt-6 flex flex-wrap gap-2">
         {
@@ -42,7 +48,10 @@ const blockIcons: Record<string, IconName> = {
             <img
               src={site.headshot.src}
               alt={site.headshot.alt}
-              class="h-full w-full object-cover"
+              width="791"
+              height="1080"
+              decoding="async"
+              class="h-full w-full object-cover object-top"
               loading="lazy"
             />
           ) : (

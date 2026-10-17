@@ -4,42 +4,42 @@ import SectionHeading from "./SectionHeading.astro";
 interface Props {
   id: string;
   title: string;
+  kicker?: string;
   eyebrow?: string;
   description?: string;
-  variant?: "white" | "surface" | "primary" | "ink";
+  variant?: "white" | "surface";
+  level?: "h1" | "h2";
   class?: string;
 }
 
 const {
   id,
   title,
+  kicker,
   eyebrow,
   description,
   variant = "white",
+  level = "h2",
   class: className = "",
 } = Astro.props;
-
-const isDark = variant === "primary" || variant === "ink";
 
 const backgrounds: Record<NonNullable<Props["variant"]>, string> = {
   white: "bg-white",
   surface: "bg-surface/40",
-  primary: "bg-primary",
-  ink: "bg-ink",
 };
 ---
 
 <section
   id={id}
-  data-tone={isDark ? "dark" : "light"}
   class={`scroll-mt-20 py-20 sm:py-24 ${backgrounds[variant]} ${className}`}
 >
   <div class="mx-auto max-w-6xl px-6">
     <SectionHeading
       title={title}
+      kicker={kicker}
       eyebrow={eyebrow}
       description={description}
-      tone={isDark ? "dark" : "light"}
+      level={level}
     />
     <div class="mt-12">
       <slot />

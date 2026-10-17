@@ -1,53 +1,43 @@
 ---
 interface Props {
   title: string;
+  kicker?: string;
   eyebrow?: string;
   description?: string;
-  tone?: "light" | "dark";
-  align?: "left" | "center";
+  level?: "h1" | "h2";
 }
 
-const {
-  title,
-  eyebrow,
-  description,
-  tone = "light",
-  align = "left",
-} = Astro.props;
+const { title, kicker, eyebrow, description, level = "h2" } = Astro.props;
 
-const isDark = tone === "dark";
-
-const eyebrowClass = isDark ? "text-secondary" : "text-primary";
-const titleClass = isDark ? "text-white" : "text-primary";
-const descriptionClass = isDark ? "text-secondary" : "text-ink/80";
-const lineClass = isDark ? "bg-accent" : "bg-primary";
-const alignWrap = align === "center" ? "mx-auto text-center" : "";
-const alignLine = align === "center" ? "justify-center" : "";
+const Tag = level;
 ---
 
-<div class={`max-w-3xl ${alignWrap}`}>
+<div class="max-w-3xl">
+  {
+    kicker && (
+      <p class="text-sm font-semibold tracking-wide text-primary/70">
+        {kicker}
+      </p>
+    )
+  }
   {
     eyebrow && (
-      <p
-        class={`text-xs font-semibold uppercase tracking-[0.25em] ${eyebrowClass}`}
-      >
+      <p class="text-xs font-semibold uppercase tracking-[0.25em] text-primary">
         {eyebrow}
       </p>
     )
   }
-  <h2
-    class={`mt-4 font-serif text-3xl font-bold tracking-tight sm:text-4xl ${titleClass}`}
+  <Tag
+    class="mt-4 font-serif text-3xl font-bold tracking-tight text-primary sm:text-4xl"
   >
     {title}
-  </h2>
-  <div class={`mt-5 flex items-center gap-3 ${alignLine}`}>
-    <span class={`h-0.5 w-12 rounded-full ${lineClass}`}></span>
+  </Tag>
+  <div class="mt-5 flex items-center gap-3">
+    <span class="h-0.5 w-12 rounded-full bg-primary"></span>
   </div>
   {
     description && (
-      <p class={`mt-5 text-lg leading-relaxed ${descriptionClass}`}>
-        {description}
-      </p>
+      <p class="mt-5 text-lg leading-relaxed text-ink/80">{description}</p>
     )
   }
 </div>

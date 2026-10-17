@@ -7,6 +7,7 @@ export type ServiceIcon =
   | "presentation";
 
 export interface Service {
+  slug: string;
   icon: ServiceIcon;
   title: string;
   whoItsFor: string;
@@ -14,11 +15,15 @@ export interface Service {
   proofPoint: string;
 }
 
+export const servicesKicker =
+  "Evidence-led advisory for education, inclusion and child protection.";
+
 export const servicesIntro =
-  "Six areas of advisory, training and technical support, tailored to your organisation, your context and your funders' requirements.";
+  "This work grows out of more than twenty years alongside communities, organisations and funders. I help NGOs, donors, government agencies and institutions design stronger programmes, protect the people they serve, and build teams that deliver lasting results. Backed by 20+ years across Uganda and the wider African region.";
 
 export const services: Service[] = [
   {
+    slug: "safeguarding-pseah",
     icon: "shield-check",
     title: "Safeguarding & PSEAH",
     whoItsFor:
@@ -32,6 +37,7 @@ export const services: Service[] = [
       "Member of an independent PSEAH investigators team for UNHCR-funded organisations, investigating in schools in refugee settlements across Uganda and Kenya.",
   },
   {
+    slug: "gender-disability-inclusion",
     icon: "users",
     title: "Gender, Disability & Social Inclusion",
     whoItsFor: "NGOs, government programmes, donors, education institutions.",
@@ -44,6 +50,7 @@ export const services: Service[] = [
       "Led World Vision Uganda's organisation-wide Gender Assessment, which informed its Gender and Disability Inclusion Policy.",
   },
   {
+    slug: "education-research-advocacy",
     icon: "file-text",
     title: "Education Research, Programme Review & Policy Advocacy",
     whoItsFor:
@@ -57,6 +64,7 @@ export const services: Service[] = [
       "Reviewed the Student Referral Pathways Programme in Uganda and Kenya for WUSC, and contributed to review of Uganda's Re-entry to School Policy and the National Strategy for Girls' Education.",
   },
   {
+    slug: "training-capacity-building",
     icon: "graduation-cap",
     title: "Training & Capacity Building",
     whoItsFor:
@@ -70,6 +78,7 @@ export const services: Service[] = [
       "Trained educators from 10 West and Central African countries on GRP centres of excellence, and supported 23 schools in Ntoroko District (2024).",
   },
   {
+    slug: "grants-management",
     icon: "hand-coins",
     title: "Grants Management & Resource Mobilisation",
     whoItsFor:
@@ -83,6 +92,7 @@ export const services: Service[] = [
       "Mobilised over UGX 21 billion from Irish Aid, the African Development Bank, MasterCard Foundation and Dubai Cares, and secured 90% of FAWE Uganda's 2013\u20132017 strategic plan budget.",
   },
   {
+    slug: "leadership-mentorship-speaking",
     icon: "presentation",
     title: "Leadership, Mentorship & Speaking",
     whoItsFor:

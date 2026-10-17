@@ -3,6 +3,7 @@ import Button from "./Button.astro";
 import StatsStrip from "./StatsStrip.astro";
 import PartnersStrip from "./PartnersStrip.astro";
 import { hero } from "../data/hero";
+import { about } from "../data/about";
 import { site } from "../data/site";
 ---
 
@@ -20,13 +21,24 @@ import { site } from "../data/site";
           {hero.eyebrow}
         </p>
         <h1
-          class="mt-5 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl md:text-6xl"
+          class="mt-5 font-serif text-4xl font-bold tracking-tight text-white sm:text-5xl"
         >
-          {hero.headline}
+          {hero.name}
         </h1>
-        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-secondary/90">
-          {hero.subheadline}
+        <p
+          class="mt-5 max-w-2xl font-serif text-2xl leading-snug text-secondary sm:text-3xl"
+        >
+          {about.lead}
         </p>
+        <ul class="mt-7 flex flex-wrap gap-2">
+          {
+            about.identityTags.map((tag) => (
+              <li class="rounded-full border border-secondary/40 bg-white/5 px-3 py-1 text-sm font-medium text-secondary">
+                {tag}
+              </li>
+            ))
+          }
+        </ul>
         <div class="mt-9 flex flex-wrap items-center gap-4">
           <Button variant="primary" href={hero.primaryCta.href}>
             {hero.primaryCta.label}
@@ -35,26 +47,27 @@ import { site } from "../data/site";
             {hero.secondaryCta.label}
           </Button>
         </div>
-        <a
-          href={hero.tertiaryLink.href}
-          class="mt-6 inline-flex items-center gap-2 text-sm font-medium text-secondary underline-offset-4 transition-colors hover:text-white hover:underline"
-        >
-          {hero.tertiaryLink.label}
-          <span aria-hidden="true">&rarr;</span>
-        </a>
       </div>
 
       <div class="lg:col-span-5">
-        <div class="relative mx-auto w-full max-w-sm">
+        <div class="relative mx-auto w-full max-w-md">
           <div
-            class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-lg ring-1 ring-secondary/60"
+            class="pointer-events-none absolute -inset-4 rotate-2 rounded-[2rem] bg-secondary/20 blur-2xl"
+            aria-hidden="true"
+          >
+          </div>
+          <div
+            class="relative aspect-[4/5] overflow-hidden rounded-3xl shadow-2xl ring-1 ring-secondary/60"
           >
             {
               site.headshot.src ? (
                 <img
                   src={site.headshot.src}
                   alt={site.headshot.alt}
-                  class="h-full w-full object-cover"
+                  width="791"
+                  height="1080"
+                  decoding="async"
+                  class="h-full w-full object-cover object-top"
                   loading="eager"
                 />
               ) : (

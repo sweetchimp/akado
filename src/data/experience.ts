@@ -17,13 +17,13 @@ export interface TimelineEntry {
   summary: string;
 }
 
-export interface TrackRecord {
+export interface Experience {
   highlights: Highlight[];
   assignments: Assignment[];
   timeline: TimelineEntry[];
 }
 
-export const trackRecord: TrackRecord = {
+export const experience: Experience = {
   highlights: [
     {
       figure: "UGX 21B+",

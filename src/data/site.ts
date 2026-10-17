@@ -12,19 +12,21 @@ export const site = {
   location: "Kampala, Uganda",
   email: "doramuhumure77@gmail.com",
   linkedin: "",
-  headshot: { src: "", alt: "Portrait of Dorothy Akankwasa Muhumure" },
+  headshot: {
+    src: "/dorothy.jpg",
+    alt: "Portrait of Dorothy Akankwasa Muhumure",
+  },
   footer: "\u00A9 Dorothy Akankwasa Muhumure. All rights reserved.",
 } as const;
 
 export const navItems: NavItem[] = [
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Approach", href: "#approach" },
-  { label: "Track Record", href: "#track-record" },
+  { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
 ];
 
 export const navCta: NavItem = {
-  label: "Request a consultation",
+  label: "Work with me",
   href: "#contact",
 };
